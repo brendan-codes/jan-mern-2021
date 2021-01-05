@@ -3,6 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+
+        console.log("Hello world!");
+
+        // hoisting
+        var x = 10;
+
+        var x;
+        x = 10;
+
+        let example = "global";
+        // doStuff();
+
+        function doStuff(){
+            example = 10; // assignments
+            console.log(example);
+        }
+
+        example = "something else";
+
+        // pass by reference vs pass by value
+
+        // objects, arrays, instances, dictionaries, complex types
+        // pass by reference
+        // they pass a reference to the memory location
+        // NOT a copy of the data
+        let global = [1, 2, 3];
+
+        function example1(data){
+            // data = global!
+            data.push(4);
+        }
+
+        example1(global);
+        console.log(global);
+
+
+        // ints, floats, booleans, strings
+        // pass by value
+        // they pass a copy of the original
+        // numbers, booleans, strings do not get memory locations
+        // NOT passed by value
+        let global2 = 10;
+
+        function example2(data){
+            data = data + 10;
+        }
+
+        example2(global2);
+        console.log(global2);
+
+        // TO BE AVOIDED
+        // reaching into global is bad practice
+        function example3(){
+            global2 = global2 + 10;
+        }
+
+
+        // take an input and return a new int!
+        function example4(data){
+            return data + 10;
+        }
+                    // data + 10
+        global2 = example4(global2);
+        // 20!!
+
+
+        // destructuring
+
+        let person = {
+            name: "Edward",
+            age: 55,
+            email: "blackbeard@pirate.com",
+            favorite_colors: ["black", "blue"]
+        }
+
+        let {name, age, favorite_colors: [black, blue, red]} = person;
+
+        console.log(`<h1 style="color:${black}">My name is ${name} and my favorite color is ${blue}<h1>`)
+        // console.log(pirate_ship);
+
+
+        // function doStuff(){
+        //     return [76, function(){
+        //         console.log("Hello world!")
+        //     }]
+        // }
+
+        // let [data, setData] = doStuff();
+
+        // number called data
+        // function called setData
+
+
+
+        // rest/spread operators
+
+        // rest operator
+        function doStuff(...args){
+
+        }
+
+        doStuff(1, 2, 3, 4, 5);
+        doStuff(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+        // spread
+        // THIS IS A PROPER JS COPY
+        let array = [1, 2, 3, 4];
+        let copyArray = [0, ...array, ...array];
+        console.log(copyArray);
+
+        // THIS IS NOT A COPY
+        let copyArrayTwo = array;
+        array.push("data");
+        console.log(copyArrayTwo);
+
+
+        // fat arrow functions
+
+        // standalone
+        function doThings(){
+
+        }
+
+        // variable holding anonymous function
+        let doOtherThings = () => {
+            return 10;
+        }
+
+        // fat arrow functions without curly braces
+        // implicitly return
+        let functionName = () => 10;
+
+
+        // tenerary statements
+        // functional programming (.map, .filter)
+
+
+    </script>
     <title>Document</title>
 </head>
 <body>
