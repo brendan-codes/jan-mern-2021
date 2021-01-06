@@ -109,4 +109,9 @@ console.log(poisonPokemonNames);
 
 console.log(pokemon);
 
+//        identifier
+function exampleFunc(){
+// body - behavior, logic
+}
+
 // functional programming

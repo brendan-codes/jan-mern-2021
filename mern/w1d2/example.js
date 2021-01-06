@@ -42,8 +42,6 @@ console.log(obj.firstName);
 console.log(Object.keys(obj));
 
 for(let key of Object.keys(obj)){
-    // console.log(key);
-    // console.log(obj[key]);
 
     console.log(`${key}: ${obj[key]}`)
 }
