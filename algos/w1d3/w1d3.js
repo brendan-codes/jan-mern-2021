@@ -16,12 +16,43 @@
 //      3. Call mergeSort for second half:
 //              Call mergeSort(arr, m+1, r)
 //      4. Merge the two halves sorted in step 2 and 3:
-//              Call merge(arr, l, m, r)
-function mergeSort(arr) {}
+//              Call mergeSortedArrays(arr1, arr2)
+
+
+// [88, 22, 44, 12, 99, 111, 9, 15, 49];
+
+
+function mergeSort(arr) {
+    // return arrays of single values
+    if (arr.length < 2) {
+        return arr;
+    }
+
+    // get the middle index, floor it to prevent floats
+    const middle = Math.floor(arr.length / 2);
+    const left = arr.slice(0, middle);
+    const right = arr.slice(middle);
+
+    // mergeSortedArray called on the result of mergeSort left and right
+    return mergeSortedArrays(mergeSort(left), mergeSort(right));
+}
 
 // return a new sorted array with all of the values of arr1 and arr2
-function mergeSortedArrays(arr1, arr2) {}
+function mergeSortedArrays(arr1, arr2) {
+    let sort = [];
 
+    while (arr1.length && arr2.length) {
+         if (arr1[0] < arr2[0]) {
+            // shift pops from the front, not ideal.
+            sort.push(arr1.shift());
+        } else {
+            sort.push(arr2.shift());
+        }
+    }
+
+    // takes remainders and squashes them together in cases with one array
+    return sort.concat(arr1.slice().concat(arr2.slice()));
+}
 
 // //steps:
 //     1. create a merge function to merge two already sorted arrays into a single sorted array
