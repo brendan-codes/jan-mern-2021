@@ -15,8 +15,32 @@
 // Params: arr, left, right
 // - for now, left will be 0, and right will be the last idx
 // - later these params will be used to specify a sub section of the array to partition
+//0/1/2/3/4/5
+ [7,5,9,2,6,   3]
+[1,2,9,5,6,3,9]
+[1,2,5,9,6,3]
 
-
+// let pivot =arr[arr.length]
+// let right =arr.length-1
+//compareleft to rightvalue
+//once the left value is bigger than the pivot,we move the right to the left (going opposite way now)
+// 1) when left&right > pivot
+// 2) when left>pivot and right < pivot
+// 3) when left & right < pivot
+// then move theright bound to theleftuntilit crosses
+[7,5,9,2,6,3]
 let Partition = (arr, left, right) => {
+    let pivot =arr[arr.length-1]
+    let left = arr[0]
+    let right= pivot-1
+    let leftInd= i;
+    let rightInd =j;
+    for(let i = 0; i < right; i++; ){
+if(left > pivot && pivot < right){
+    right -=
+}
+    }
 
 }
+
+//turn offautosave

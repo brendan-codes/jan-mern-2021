@@ -17,6 +17,252 @@
 // - later these params will be used to specify a sub section of the array to partition
 
 
-let Partition = (arr, left, right) => {
+const Partition = (arr, left, right) => {
+    let pivot = arr[left];
+    let i =left - 1;
+    let j =right + 1;
 
+    while(true) {
+        while(true) {
+            i+= 1
+            if(arr[i] >= pivot){
+                break;
+            }
+        }
+
+
+        while(true) {
+            j-= 1
+            if(arr[j] <= pivot){
+                break;
+            }
+        }
+
+
+        if(i >= j) {
+            return j;
+        }
+
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] =temp;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// function quick_Sort(origArray) {
+    //This is a check to ensure the array is more than one
+// 	if (origArray.length <= 1) {
+// 		return origArray;
+// 	} else {
+
+// 		var left = [];
+// 		var right = [];
+// 		var newArray = [];
+// 		var pivot = origArray.pop();
+// 		var length = origArray.length;
+
+// 		for (var i = 0; i < length; i++) {
+// 			if (origArray[i] <= pivot) {
+// 				left.push(origArray[i]);
+// 			} else {
+// 				right.push(origArray[i]);
+// 			}
+// 		}
+
+// 		return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
+// 	}
+// }
+
+// var myArray = [3, 0, 2, 5, -1, 4, 1 ];
+
+// console.log("Original array: " + myArray);
+// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);

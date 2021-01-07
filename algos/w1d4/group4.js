@@ -3,7 +3,7 @@
 // https://upload.wikimedia.org/wikipedia/commons/8/84/Lomuto_animated.gif
 
 
-
+// DanielHavens,Josiah_S,Enzo Jimenez,KyleHowell
 
 // Steps:
 // 1. Pick an item out of the arr to be your pivot value
@@ -18,5 +18,26 @@
 
 
 let Partition = (arr, left, right) => {
-
+    let pivot = arr[Math.floor(left.length + right.length / 2)]
+    while(left < right){
+        while(arr[left] < pivot){
+        left++;
+        }
+        while (arr[right]>pivot){
+        right--;
+        }
+        if(left > pivot){
+            let temp=arr[left]
+            arr[left]=arr[right]
+            arr[right]=temp
+            left++;
+            right--;
+        }
+    }
 }
+
+
+var testArray = [9, -1, 3, 1, 7, 5, 0, -4, 2];
+console.log(Partition(testArray,0, testArray.length-1));
+
+//turn offautosave

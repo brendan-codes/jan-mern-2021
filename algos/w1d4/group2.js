@@ -16,7 +16,23 @@
 // - for now, left will be 0, and right will be the last idx
 // - later these params will be used to specify a sub section of the array to partition
 
+const partition = (arr, left=0, right=arr.length-1) => {
+    const pivot = arr[right];
+    let i = left;
+    let j = right;
+    while (i !== j) {
+        while (arr[i] < pivot) {
+            i++;
+        }
+        while (arr[j] > pivot) {
+            j--;
+        }
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    return j;
+};
 
-let Partition = (arr, left, right) => {
-
-}
+let myArr = [1, 12, 4, 9, 15, 2, 20, 7, 6, 3, 8, 10, 30];
+console.log(partition(myArr, 0, 5))

@@ -16,7 +16,49 @@
 // - for now, left will be 0, and right will be the last idx
 // - later these params will be used to specify a sub section of the array to partition
 
-
+//          |left   | pivot   |right
+let arr = [9,6,2,8,3,2,8,0,7]
+//
+//1,5,3,7
+//  index left, index right
 let Partition = (arr, left, right) => {
+  console.log(arr, left, right);
+  // pivot value
+  if (!left) {
+    left = 0;
+  }
+  if (!right) {
+    right = arr.length-1;
+  }
+  let pivot = arr[Math.floor((left + right) / 2)];
+  console.log('pivot ->', pivot)
+
+//compare pivot to left val andrightval
+//leftlarger thanpivod
+//rightsmaller thanpivot
+for(let i=0; i<arr.length/2; i++) {
+// checkpiviot if same asindex
+if(pivot == i){
+// do what?
 
 }
+  if(arr[left] > pivot && arr[right] < pivot) {
+      // arr[left], arr[right] = arr[right], arr[left];
+    console.log('left > pivot < right')
+    let temp =arr[left];
+    arr[right] = arr[left];
+    arr[left] = temp;
+    left++;
+    right--;
+  }
+console.log(arr)
+}
+
+}
+Partition(arr)
+
+//turn offautosave
+const pivot = arr[Math.floor((left + right) / 2)];
+
+
+
