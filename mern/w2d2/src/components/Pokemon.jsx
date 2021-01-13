@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
-const Pokemon = ({pkm}) => {
+const Pokemon = (props) => {
+
+    const {pkm} = props;
 
     const [pokemon, setPokemon] = useState({
         name: "",
@@ -21,11 +23,11 @@ const Pokemon = ({pkm}) => {
                     console.log(err);
                 })
     }, [pkm]);
-
+//
     return (
         <div>
             <p>{pokemon.name}</p>
-            <img src={pokemon.sprites.front_default} />
+            <img src={pokemon.sprites.front_default} alt={} />
         </div>
     )
 }

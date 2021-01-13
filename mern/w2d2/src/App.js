@@ -17,7 +17,6 @@ function App() {
   const [prev, setPrev] = useState(null);
 
   useEffect(() => {
-    // getPokemon();
     getPokemonAxios();
   }, []);
 
