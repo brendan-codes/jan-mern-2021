@@ -57,7 +57,7 @@ function twoSumBetter(nums, target) {
 
     for (let i = 0; i < nums.length; i++) {
         let missingNumber = target - nums[i];
-        if (map.hasOwnProperty(missingNumber)) { //0(1)
+        if (map.hasOwnProperty(missingNumber)) { // 0(1)
             return [map[missingNumber], i];
         }
         map[missingNumber] = i;
