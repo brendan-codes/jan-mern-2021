@@ -11,11 +11,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// database connection
 mongoose.connect("mongodb://localhost/drink-db", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
+// schema
 const DrinkSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -27,15 +29,14 @@ const DrinkSchema = new mongoose.Schema({
     amount: Number
 }, {timestamps: true});
 
+// model object
 const Drink = mongoose.model("Drink", DrinkSchema);
 
 
 
-// routes in the middle
-app.get("/", (req, res) => {
-    res.json({message: "Hello world!"});
-})
+// routes
 
+// get all drinks
 app.get("/drinks", (req, res) => {
     Drink.find()
         .then(data => {
@@ -48,8 +49,47 @@ app.get("/drinks", (req, res) => {
         })
 })
 
+
+// create new drink
 app.post("/drinks", (req, res) => {
     Drink.create(req.body)
+        .then(data => {
+            console.log(data);
+            res.json(data);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        })
+})
+
+// find one by id
+app.get("/drinks/:id", (req, res) => {
+    Drink.findOne({"_id": req.params.id})
+        .then(data => {
+            console.log(data);
+            res.json(data);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        })
+})
+
+app.put("/drinks/:id", (req, res) => {
+    Drink.findOneAndUpdate({"_id": req.params.id}, req.body)
+        .then(data => {
+            console.log(data);
+            res.json(data);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        })
+})
+
+app.delete("/drinks/:id", (req, res) => {
+    Drink.deleteOne({"_id": req.params.id})
         .then(data => {
             console.log(data);
             res.json(data);
