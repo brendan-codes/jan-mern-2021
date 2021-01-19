@@ -35,7 +35,6 @@ const Drink = mongoose.model("Drink", DrinkSchema);
 
 
 // routes
-
 // get all drinks
 app.get("/drinks", (req, res) => {
     Drink.find()
