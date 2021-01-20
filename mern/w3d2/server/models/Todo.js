@@ -8,6 +8,8 @@ const TodoSchema = new mongoose.Schema({
     },
     desc: {
         type: String,
+        required: true,
+        minlength: [6, "Todo desc must be 6 or more characters!"]
     },
     completed: {
         type: Boolean,
