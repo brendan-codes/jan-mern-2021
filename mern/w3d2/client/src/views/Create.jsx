@@ -7,6 +7,8 @@ const Create = ({addTodo}) => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
+    const [errorMessages, setErrorMessages] = useState([]);
+
     const formHandler = (e) => {
         e.preventDefault();
 
@@ -37,8 +39,17 @@ const Create = ({addTodo}) => {
                 navigate("/");
             })
             .catch(err => {
+                // setErrorMessages([]);
                 // error handling
                 console.log(err.response.data);
+
+                const { errors } = err.response.data;
+                const messages = Object.keys(errors).map(error => errors[error].message);
+                const objects = Object.keys(errors).map(error => errors[error]);
+
+                console.log(objects);
+
+                setErrorMessages(messages);
             })
     }
 
@@ -46,6 +57,11 @@ const Create = ({addTodo}) => {
         <div>
             <Link to={"/"}>All todos</Link>
             <p>This is Create!</p>
+            {
+                errorMessages.map((message, i) =>
+                    <p style={{color: 'red'}} key={i}>{message}</p>
+                )
+            }
             <form onSubmit={formHandler}>
                 <p>Title!</p>
                 <input

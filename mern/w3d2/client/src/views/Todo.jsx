@@ -24,11 +24,13 @@ const Todo = ({id}) => {
             })
     }, [id])
 
+
     return (
         <div>
             <p>{todo.title}</p>
             <p>{todo.desc}</p>
             <p>{todo.createdAt}</p>
+            <p>{todo._id}</p>
             <p><input type="checkbox" value={todo.completed}></input></p>
             <p><Link to={"/"}>back</Link></p>
         </div>

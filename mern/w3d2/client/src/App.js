@@ -1,7 +1,6 @@
 import { Router } from '@reach/router';
 import { useState, useEffect} from 'react';
 import axios from 'axios';
-import { set } from 'mongoose';
 import List from './views/List';
 import Create from './views/Create';
 import Edit from './views/Edit';
@@ -14,7 +13,6 @@ function App() {
   useEffect(() => {
     axios.get("http://localhost:8888/todos")
       .then(res => {
-        console.log(res);
         setTodos(res.data);
       })
       .catch(err => {
@@ -26,10 +24,32 @@ function App() {
     setTodos([...todos, todo]);
   }
 
+  const updateTodo = (changedTodo, id) => {
+    setTodos(todos.map(todo => {
+      if(todo._id === id){
+        return changedTodo;
+      }
+      return todo;
+    }));
+  }
+
+  const updateAPI = (data, id) => {
+    axios.put(`http://localhost:8888/todos/${id}`, data)
+      .then(res => {
+        console.log(res);
+        updateTodo(res.data, id);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+
+
   return (
     <div>
       <Router>
-        <List path="/" todos={todos}/>
+        <List path="/" todos={todos} updateAPI={updateAPI}/>
         <Create path="/new" addTodo={addTodo} />
         <Edit path="/edit/:id"/>
         <Todo path="/show/:id"/>
