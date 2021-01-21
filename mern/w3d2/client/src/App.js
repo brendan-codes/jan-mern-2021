@@ -8,8 +8,10 @@ import Todo from './views/Todo';
 
 function App() {
 
+  // state variables
   const [todos, setTodos] = useState([]);
 
+  // useEffect to run on load
   useEffect(() => {
     axios.get("http://localhost:8888/todos")
       .then(res => {
@@ -20,6 +22,7 @@ function App() {
       })
   }, [])
 
+  // local data handlers
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
   }
@@ -33,6 +36,18 @@ function App() {
     }));
   }
 
+  const deleteTodo = (id) => {
+    const changedTodos = todos.filter((todo) => {
+      if(todo._id === id){
+        return false;
+      }
+      return true;
+    })
+
+    setTodos(changedTodos);
+  }
+
+  // API handlers
   const updateAPI = (data, id) => {
     axios.put(`http://localhost:8888/todos/${id}`, data)
       .then(res => {
@@ -44,15 +59,30 @@ function App() {
       })
   }
 
+  const deleteAPI = (id) => {
+    axios.delete(`http://localhost:8888/todos/${id}`)
+      .then(res => {
+        console.log(res);
+        deleteTodo(id);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
 
+  // router
   return (
     <div>
       <Router>
-        <List path="/" todos={todos} updateAPI={updateAPI}/>
+        <List path="/"
+          todos={todos}
+          updateAPI={updateAPI}
+          deleteAPI={deleteAPI}
+        />
         <Create path="/new" addTodo={addTodo} />
-        <Edit path="/edit/:id"/>
-        <Todo path="/show/:id"/>
+        <Edit path="/edit/:id" updateAPI={updateAPI}/>
+        <Todo path="/show/:id" updateAPI={updateAPI}/>
       </Router>
     </div>
   );

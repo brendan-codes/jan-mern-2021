@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from '@reach/router';
 
-const List = ({todos, updateAPI}) => {
+const List = ({todos, updateAPI, deleteAPI}) => {
 
     const checkBoxHandler = (completed, id) => {
         // const status = !completed;
@@ -22,8 +22,11 @@ const List = ({todos, updateAPI}) => {
                         <li>status: <input
                             type="checkbox"
                             checked={todo.completed}
-                            onChange={e => checkBoxHandler(e.target.checked, todo._id)}>
-                        </input></li>
+                            onChange={e => checkBoxHandler(e.target.checked, todo._id)}></input>
+                        </li>
+                        <li>
+                            <button onClick={e => deleteAPI(todo._id)}>Delete!</button>
+                        </li>
                     </ul>
                 </section>
             )

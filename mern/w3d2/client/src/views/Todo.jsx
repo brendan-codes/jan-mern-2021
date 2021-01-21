@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
+import e from 'cors';
 
-const Todo = ({id}) => {
+const Todo = ({id, updateAPI}) => {
 
     const [todo, setTodo] = useState({
         completed: false,
@@ -11,6 +12,15 @@ const Todo = ({id}) => {
         title: "",
         updatedAt: Date.now()
     });
+
+    const checkBoxHandler = (completed, id) => {
+        const changedTodo = {...todo};
+        changedTodo.completed = completed;
+        setTodo(changedTodo);
+
+        updateAPI({completed: completed}, id);
+    }
+
 
     useEffect(() => {
         console.log(id);
@@ -31,7 +41,12 @@ const Todo = ({id}) => {
             <p>{todo.desc}</p>
             <p>{todo.createdAt}</p>
             <p>{todo._id}</p>
-            <p><input type="checkbox" value={todo.completed}></input></p>
+            <p><input
+                    type="checkbox"
+                    checked={todo.completed}
+                    onChange={e => checkBoxHandler(e.target.checked, todo._id)}>
+                </input></p>
+            <p><Link to={`/edit/${todo._id}`}>edit</Link></p>
             <p><Link to={"/"}>back</Link></p>
         </div>
     )

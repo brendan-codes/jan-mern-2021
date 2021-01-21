@@ -12,6 +12,7 @@ const Create = ({addTodo}) => {
     const formHandler = (e) => {
         e.preventDefault();
 
+        // {
         // const errors = false;
         // const messages = []
 
@@ -25,6 +26,7 @@ const Create = ({addTodo}) => {
         // }else{
         //     axios ...
         // }
+        // }
 
         const newTodo = {
             title: title,
@@ -33,22 +35,12 @@ const Create = ({addTodo}) => {
 
         axios.post("http://localhost:8888/todos", newTodo)
             .then(res => {
-                // success
-                console.log(res);
                 addTodo(res.data);
                 navigate("/");
             })
             .catch(err => {
-                // setErrorMessages([]);
-                // error handling
-                console.log(err.response.data);
-
                 const { errors } = err.response.data;
                 const messages = Object.keys(errors).map(error => errors[error].message);
-                const objects = Object.keys(errors).map(error => errors[error]);
-
-                console.log(objects);
-
                 setErrorMessages(messages);
             })
     }
